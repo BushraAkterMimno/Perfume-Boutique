@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfume Boutique</title>
+  <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #fef6f0;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1755008254587-fd2d9870f74d?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
+      height: 75vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero h1 {
+      font-family: 'Parisienne', cursive;
+      font-size: 4rem;
+      animation: fadeSlide 1s ease-out forwards;
+    }
+    .hero p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      animation: fadeSlide 1s ease-out 0.5s forwards;
+      opacity: 0;
+    }
+    .hero a {
+      margin-top: 1.5rem;
+      animation: fadeSlide 1s ease-out 1s forwards;
+      opacity: 0;
+    }
+
+    /* Floating bottles */
+    .bottle {
+      position: absolute;
+      width: 60px;
+      animation: float 6s ease-in-out infinite;
+    }
+    .bottle1 { left: 48%; top: 80%; animation-delay: 0s; }
+    .bottle2 { left: 20%; animation-delay: 2s; }
+    .bottle3 { left: 70%; animation-delay: 4s; }
+
+    @keyframes fadeSlide {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Product Cards */
+    .product-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    .product-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .product-card img:hover {
+      transform: scale(1.1) rotate(2deg);
+    }
+
+    /* Fade-in on scroll */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md fixed w-full z-50">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="text-2xl font-bold text-pink-600 flex items-center space-x-2">
+        <img src="assets/logo.png" class="h-[50px]" alt="">
+        <p>PerfumeBoutique</p></div>
+      <div class="space-x-6">
+        <a href="#home" class="hover:text-pink-600 transition">Home</a>
+        <a href="#products" class="hover:text-pink-600 transition">Products</a>
+        <a href="#contact" class="hover:text-pink-600 transition">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <h1>Elegance in Every Drop</h1>
+    <p>Discover your signature fragrance with us</p>
+    <a href="#products" class="bg-pink-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-pink-500 transition">Shop Now</a>
+
+    <!-- Floating Bottles -->
+    <img src="assets/img (3).png" class="bottle bottle1 h-[90px] w-[90px]">
+    <img src="assets/img (2).png" class="bottle bottle2 h-[90px] w-[90px]">
+    <img src="assets/img (4).png" class="bottle bottle3 h-[90px] w-[90px]">
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="py-20 container mx-auto px-6">
+    <h2 class="text-4xl font-bold text-pink-600 text-center mb-12 fade-in">Top Perfumes</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      
+      <div class="product-card fade-in">
+        <img src="https://i.pinimg.com/736x/73/ea/fc/73eafcfd7b26b98ba1b9b48cd038befb.jpg" alt="Rose Delight">
+        <div class="p-4">
+          <h3 class="font-bold text-lg">Rose Delight</h3>
+          <p class="text-pink-600 font-semibold mt-2">$49.99</p>
+        </div>
+      </div>
+
+      <div class="product-card fade-in" style="transition-delay: 0.2s;">
+        <img src="https://i.pinimg.com/1200x/a0/be/3f/a0be3ffd66856af376973651105a78a9.jpg" alt="Ocean Breeze">
+        <div class="p-4">
+          <h3 class="font-bold text-lg">Ocean Breeze</h3>
+          <p class="text-pink-600 font-semibold mt-2">$59.99</p>
+        </div>
+      </div>
+
+      <div class="product-card fade-in" style="transition-delay: 0.4s;">
+        <img src="https://i.pinimg.com/736x/f4/1d/f4/f41df460639359b9ce18311982cf4b1b.jpg" alt="Vanilla Whisper">
+        <div class="p-4">
+          <h3 class="font-bold text-lg">Vanilla Whisper</h3>
+          <p class="text-pink-600 font-semibold mt-2">$69.99</p>
+        </div>
+      </div>
+
+      <div class="product-card fade-in" style="transition-delay: 0.4s;">
+        <img src="https://i.pinimg.com/736x/f1/69/8e/f1698ec7130140c21684f0560d684a37.jpg" alt="Fouzia">
+        <div class="p-4">
+          <h3 class="font-bold text-lg">Fouzia</h3>
+          <p class="text-pink-600 font-semibold mt-2">$79.99</p>
+        </div>
+      </div>
+
+      <div class="product-card fade-in" style="transition-delay: 0.4s;">
+        <img src="https://i.pinimg.com/1200x/fe/a0/71/fea0716115535841a78e53d5b38c4a11.jpg" alt="Jackeline">
+        <div class="p-4">
+          <h3 class="font-bold text-lg">Jackeline</h3>
+          <p class="text-pink-600 font-semibold mt-2">$89.99</p>
+        </div>
+      </div>
+
+      <div class="product-card fade-in" style="transition-delay: 0.4s;">
+        <img src="https://i.pinimg.com/1200x/cb/3a/9b/cb3a9b4ef857a54ed5648f34520e28ef.jpg" alt="Marisel">
+        <div class="p-4">
+          <h3 class="font-bold text-lg">Marisel</h3>
+          <p class="text-pink-600 font-semibold mt-2">$39.99</p>
+        </div>
+      </div>
+
+      <div class="product-card fade-in" style="transition-delay: 0.4s;">
+        <img src="https://i.pinimg.com/1200x/67/af/de/67afde30e1ef3fb293c19ba1bbfa7208.jpg" alt="Midnight Bloom">
+        <div class="p-4">
+          <h3 class="font-bold text-lg">Midnight Bloom</h3>
+          <p class="text-pink-600 font-semibold mt-2">$49.99</p>
+        </div>
+      </div>
+
+      <div class="product-card fade-in" style="transition-delay: 0.4s;">
+        <img src="https://i.pinimg.com/736x/63/91/82/639182738506272d477703b80188a79f.jpg" alt="Chanel">
+        <div class="p-4">
+          <h3 class="font-bold text-lg">Chanel</h3>
+          <p class="text-pink-600 font-semibold mt-2">$69.99</p>
+        </div>
+      </div>
+
+      <div class="product-card fade-in" style="transition-delay: 0.4s;">
+        <img src="https://i.pinimg.com/736x/fc/c6/9a/fcc69a53116ee03a2cac0523548cb290.jpg" alt="Dream Angel">
+        <div class="p-4">
+          <h3 class="font-bold text-lg">Dream Angel</h3>
+          <p class="text-pink-600 font-semibold mt-2">$59.99</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+    <!-- About Section -->
+  <section id="about" class="py-20 bg-pink-50">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold text-pink-600 mb-6 fade-in">About Us</h2>
+      <p class="max-w-3xl mx-auto text-gray-700 text-lg fade-in">Perfume Boutique brings you the finest fragrances from around the world. We believe in elegance, luxury, and individuality. Each bottle tells a story and is crafted to make you feel unforgettable.</p>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-20 bg-pink-50 text-center fade-in">
+    <h2 class="text-3xl font-bold mb-4">Find Your Signature Scent Today</h2>
+    <p class="mb-6">Exclusive perfumes crafted for your elegance and style.</p>
+    <a href="#products" class="bg-pink-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-pink-500 transition">Shop Now</a>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 container mx-auto px-6">
+    <h2 class="text-4xl font-bold text-pink-600 text-center mb-6 fade-in">Get in Touch</h2>
+    <form class="max-w-2xl mx-auto bg-white p-10 rounded-2xl shadow-lg fade-in">
+      <input type="text" placeholder="Your Name" class="w-full border border-gray-300 rounded-full px-4 py-2 mb-4 focus:outline-none focus:border-pink-600">
+      <input type="email" placeholder="Your Email" class="w-full border border-gray-300 rounded-full px-4 py-2 mb-4 focus:outline-none focus:border-pink-600">
+      <textarea placeholder="Your Message" class="w-full border border-gray-300 rounded-2xl px-4 py-2 mb-4 focus:outline-none focus:border-pink-600"></textarea>
+      <button type="submit" class="w-full bg-pink-600 text-white py-2 rounded-full hover:bg-pink-500 transition">Send Message</button>
+    </form>
+  </section>
+
+  <footer class="bg-pink-600 text-white py-6 text-center">
+    &copy; 2025 Perfume Boutique. All rights reserved.
+  </footer>
+
+  <script>
+    // Fade-in on scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.3 };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
+
+</body>
+</html>
